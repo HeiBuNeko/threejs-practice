@@ -11,9 +11,9 @@ importers:
       dat.gui:
         specifier: ^0.7.9
         version: 0.7.9
-      pinia:
-        specifier: ^2.1.7
-        version: 2.1.7(typescript@5.4.5)(vue@3.4.23(typescript@5.4.5))
+      normalize.css:
+        specifier: ^8.0.1
+        version: 8.0.1
       three:
         specifier: ^0.163.0
         version: 0.163.0
@@ -941,6 +941,9 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
+  normalize.css@8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+
   npm-normalize-package-bin@3.0.1:
     resolution: {integrity: sha512-dMxCf+zZ+3zeQZXKxmyuCKlIDPGuv8EF940xbkC4kQVDTtqoh6rJFO+JTKSA6/Rwi0getWmtuy4Itup0AMcaDQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
@@ -1002,18 +1005,6 @@ packages:
     resolution: {integrity: sha512-eG2dWTVw5bzqGRztnHExczNxt5VGsE6OwTeCG3fdUf9KBsZzO3R5OIIIzWR+iZA0NtZ+RDVdaoE2dK1cn6jH4g==}
     engines: {node: '>=0.10'}
     hasBin: true
-
-  pinia@2.1.7:
-    resolution: {integrity: sha512-+C2AHFtcFqjPih0zpYuvof37SFxMQ7OEG2zV9jRI12i9BOy3YQVAHwdKtyyc8pDcDyIc33WCIsZaCFWU7WWxGQ==}
-    peerDependencies:
-      '@vue/composition-api': ^1.4.0
-      typescript: '>=4.4.4'
-      vue: ^2.6.14 || ^3.3.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-      typescript:
-        optional: true
 
   postcss-selector-parser@6.0.16:
     resolution: {integrity: sha512-A0RVJrX+IUkVZbW3ClroRWurercFhieevHB38sr2+l9eUClMqome3LmEmnhlNy+5Mr2EYN6B2Kaw9wYdd+VHiw==}
@@ -1187,17 +1178,6 @@ packages:
       sugarss:
         optional: true
       terser:
-        optional: true
-
-  vue-demi@0.14.7:
-    resolution: {integrity: sha512-EOG8KXDQNwkJILkx/gPcoL/7vH+hORoBaKgGe+6W7VFMvCYJfmF2dGbvgDroVnI8LU7/kTu8mbjRZGBU1z9NTA==}
-    engines: {node: '>=12'}
-    hasBin: true
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
         optional: true
 
   vue-eslint-parser@9.4.2:
@@ -2076,6 +2056,8 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
+  normalize.css@8.0.1: {}
+
   npm-normalize-package-bin@3.0.1: {}
 
   npm-run-all2@6.1.2:
@@ -2132,14 +2114,6 @@ snapshots:
   picomatch@2.3.1: {}
 
   pidtree@0.6.0: {}
-
-  pinia@2.1.7(typescript@5.4.5)(vue@3.4.23(typescript@5.4.5)):
-    dependencies:
-      '@vue/devtools-api': 6.6.1
-      vue: 3.4.23(typescript@5.4.5)
-      vue-demi: 0.14.7(vue@3.4.23(typescript@5.4.5))
-    optionalDependencies:
-      typescript: 5.4.5
 
   postcss-selector-parser@6.0.16:
     dependencies:
@@ -2285,10 +2259,6 @@ snapshots:
       '@types/node': 20.12.7
       fsevents: 2.3.3
       sass: 1.75.0
-
-  vue-demi@0.14.7(vue@3.4.23(typescript@5.4.5)):
-    dependencies:
-      vue: 3.4.23(typescript@5.4.5)
 
   vue-eslint-parser@9.4.2(eslint@8.57.0):
     dependencies:
