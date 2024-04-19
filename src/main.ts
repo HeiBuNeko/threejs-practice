@@ -4,6 +4,8 @@ import App from './App.vue'
 import router from './router'
 
 import 'normalize.css/normalize.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+
 const app = createApp(App)
 
 app.use(router)
