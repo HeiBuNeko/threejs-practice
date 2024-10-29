@@ -7,14 +7,15 @@ const router = createRouter({
     {
       path: '/',
       name: 'HomeView',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/ThreejsPractice',
       name: 'ThreejsPractice',
-      component: () => import('@/views/ThreejsPractice/ThreejsPracticeIndex.vue')
-    }
-  ]
+      component: () =>
+        import('@/views/ThreejsPractice/ThreejsPracticeIndex.vue'),
+    },
+  ],
 })
 
 export default router

@@ -14,28 +14,15 @@
       <el-main class="main-layout">
         <el-row :gutter="20">
           <el-col :span="12">
-            <el-card
-              class="card-container"
-              @click="toPractice"
-            >
-              <template #header>
-                Threejs Practice
-              </template>
-              <el-image
-                fit="fill"
-                :src="ThreejsPrctice"
-              />
+            <el-card class="card-container" @click="toPractice">
+              <template #header> Threejs Practice </template>
+              <el-image fit="fill" :src="ThreejsPrctice" />
             </el-card>
           </el-col>
           <el-col :span="12">
             <el-card class="card-container">
-              <template #header>
-                Coming Soon
-              </template>
-              <el-image
-                fit="fill"
-                :src="ThreejsPrctice"
-              />
+              <template #header> Coming Soon </template>
+              <el-image fit="fill" :src="ThreejsPrctice" />
             </el-card>
           </el-col>
         </el-row>

@@ -10,7 +10,12 @@ import * as dat from 'dat.gui'
 
 // 场景初始化
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000,
+)
 
 camera.position.set(5, 5, 5)
 camera.lookAt(0, 0, 0)
@@ -24,7 +29,7 @@ const boxGeo = new THREE.BoxGeometry(1, 1, 1)
 // 1. 定义颜色数组（x 正负，y 正负，z 正负）
 const colorArr = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff]
 // 2. 遍每个颜色字符串映射成材质对象
-const boxMatArr = colorArr.map((color) => new THREE.MeshBasicMaterial({ color }))
+const boxMatArr = colorArr.map(color => new THREE.MeshBasicMaterial({ color }))
 // 3. 将材质对象数组传入 Mesh 构造函数
 const box = new THREE.Mesh(boxGeo, boxMatArr)
 scene.add(box)
@@ -33,7 +38,7 @@ scene.add(box)
 const group = new THREE.Group()
 const boxInfo = [
   { color: 0x00ffff, w: 1, h: 1, d: 1, x: 2, y: 0, z: 0 },
-  { color: 0x0000ff, w: 1, h: 1, d: 1, x: 4, y: 0, z: 0 }
+  { color: 0x0000ff, w: 1, h: 1, d: 1, x: 4, y: 0, z: 0 },
 ]
 boxInfo.forEach(({ color, w, h, d, x, y, z }) => {
   const boxGeo = new THREE.BoxGeometry(w, h, d)
@@ -46,21 +51,30 @@ scene.add(group)
 
 // 球缓冲几何体
 const sphereGeo = new THREE.SphereGeometry(0.5, 32, 32)
-const sphereMat = new THREE.MeshBasicMaterial({ color: 0x00ffff, side: THREE.DoubleSide })
+const sphereMat = new THREE.MeshBasicMaterial({
+  color: 0x00ffff,
+  side: THREE.DoubleSide,
+})
 const sphere = new THREE.Mesh(sphereGeo, sphereMat)
 sphere.position.set(6, 0, 0)
 scene.add(sphere)
 
 // 圆形缓冲几何体
 const circleGeo = new THREE.CircleGeometry(0.5, 128)
-const circleMat = new THREE.MeshBasicMaterial({ color: 0x00ffff, side: THREE.DoubleSide })
+const circleMat = new THREE.MeshBasicMaterial({
+  color: 0x00ffff,
+  side: THREE.DoubleSide,
+})
 const circle = new THREE.Mesh(circleGeo, circleMat)
 circle.position.set(4, 2, 0)
 scene.add(circle)
 
 // 平面缓冲几何体
 const planeGeo = new THREE.PlaneGeometry(1, 1)
-const planeMat = new THREE.MeshBasicMaterial({ color: 0x00ffff, side: THREE.DoubleSide })
+const planeMat = new THREE.MeshBasicMaterial({
+  color: 0x00ffff,
+  side: THREE.DoubleSide,
+})
 const plane = new THREE.Mesh(planeGeo, planeMat)
 plane.position.set(2, 2, 0)
 scene.add(plane)
@@ -91,22 +105,25 @@ for (let i = 0; i < 10000; i++) {
   starVertices.push(x, y, z)
 }
 const starGeo = new THREE.BufferGeometry()
-starGeo.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3))
+starGeo.setAttribute(
+  'position',
+  new THREE.Float32BufferAttribute(starVertices, 3),
+)
 const starMat = new THREE.PointsMaterial({ color: 0x888888 })
 const points = new THREE.Points(starGeo, starMat)
 scene.add(points)
 
 // 移除立方体
-window.addEventListener('dblclick', () => {
-  // 1. 调用相关废弃函数
-  group.children.forEach((child: any) => {
-    child.geometry.dispose()
-    child.material.dispose()
-    group.remove(child)
-  })
-  // 2. 从场景中移除立方体
-  scene.remove(group)
-})
+// window.addEventListener('dblclick', () => {
+//   // 1. 调用相关废弃函数
+//   group.children.forEach((child) => {
+//     child.geometry.dispose()
+//     child.material.dispose()
+//     group.remove(child)
+//   })
+//   // 2. 从场景中移除立方体
+//   scene.remove(group)
+// })
 
 // 轨道控制器
 const controls = new OrbitControls(camera, renderer.domElement)
@@ -132,7 +149,7 @@ gui.add(box, 'visible')
 gui.add(controls, 'reset')
 // 控制立方体颜色
 const colorObj = { color: `#${box.material[0].color.getHexString()}` }
-gui.addColor(colorObj, 'color').onChange((e) => {
+gui.addColor(colorObj, 'color').onChange(e => {
   box.material[0].color.set(e)
 })
 // 创建分组-影响立方体位置
@@ -144,7 +161,7 @@ folder.add(box.position, 'z', 0, 5, 0.1)
 // 下拉菜单-第三个参数为对象时->下拉菜单
 // 对象中属性名->下拉菜单选项名
 // 初始值匹配后会影响下拉菜单默认选中哪一项
-gui.add({ type: '1' }, 'type', { 选项1: '1', 选项2: '2' }).onChange((e) => {
+gui.add({ type: '1' }, 'type', { 选项1: '1', 选项2: '2' }).onChange(e => {
   switch (e) {
     case '1':
       box.position.set(0, 0, 0)
